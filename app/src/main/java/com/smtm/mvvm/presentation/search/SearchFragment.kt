@@ -31,6 +31,7 @@ class SearchFragment : RxBaseFragment<FragmentSearchBinding>() {
 //        binding.setLifecycleOwner(this)
         // TODO: Use the ViewModel
 
+
     }
 
 
