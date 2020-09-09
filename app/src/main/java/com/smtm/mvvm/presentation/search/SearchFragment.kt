@@ -24,7 +24,7 @@ class SearchFragment : RxBaseFragment<FragmentSearchBinding>() {
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        Log.e("gg","SearchFragment onActivityCreated()")
+        Log.e("gg","SearchFragment onActivityCreated()!!")
         initImageRecyclerView()
         initImageListViewModel()
 //        binding.searchListViewModel = searchViewModel
