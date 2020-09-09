@@ -1,0 +1,25 @@
+<resources>
+    <string name="app_name">MVVM Starter</string>
+    <string name="menu_bookmark">Bookmark</string>
+
+    <string name="title">Main</string>
+
+    <string name="tab_text_2">로컬</string>
+    <string name="tab_text_1">API</string>
+
+
+    <!-- user view model -->
+    <string name="success_favorite_save">좋아요 선택</string>
+    <string name="success_favorite_delete">좋아요 취소</string>
+
+
+    <string name="server_error">서버에서 에러가 발생했습니다</string>
+    <string name="network_not_connecting_error">인터넷 연결을 확인해주세요</string>
+    <string name="unknown_error">알 수 없는 에러가 발생했습니다</string>
+    <string name="non_existent_url_error">연결되는 사이트가 없습니다</string>
+
+
+    <string name="success_image_search_no_result">검색 결과가 없습니다</string>
+    <string name="success_image_search_last_data">마지막 검색 페이지입니다</string>
+    <string name="empty_keyword_guide">검색어를 입력해주세요</string>
+</resources>

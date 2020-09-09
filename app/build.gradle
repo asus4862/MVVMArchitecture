@@ -1,0 +1,128 @@
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
+
+android {
+
+    compileSdkVersion AndroidSdk.compileSdk
+
+    defaultConfig {
+        applicationId "com.smtm.mvvm"
+        minSdkVersion AndroidSdk.minSdk
+        targetSdkVersion AndroidSdk.targetSdk
+        versionCode AndroidSdk.versionCode
+        versionName AndroidSdk.versionName
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+
+    }
+
+
+    dataBinding {
+        enabled = true
+    }
+
+
+    packagingOptions {
+        exclude 'LICENSE.txt'
+        exclude 'LICENSE'
+        exclude 'META-INF/LICENSE'
+        exclude 'META-INF/LICENSE.txt'
+        exclude 'META-INF/NOTICE'
+        exclude 'META-INF/NOTICE.txt'
+        exclude 'META-INF/rxjava.properties'
+    }
+
+    compileOptions {
+        sourceCompatibility = JavaVersion.VERSION_1_8
+        targetCompatibility = JavaVersion.VERSION_1_8
+    }
+
+
+    buildTypes {
+        debug {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro"
+        }
+    }
+}
+
+dependencies {
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+
+    // Support Libraries
+    implementation Support.app_compat
+    implementation Support.v4
+    implementation Support.design
+    implementation Support.recyclerview
+    implementation Support.constraint_layout
+
+    // Architecture components
+    kapt Lifecycle.compiler
+    implementation Lifecycle.runtime
+    implementation Lifecycle.extensions
+//    implementation Libraries.paging_ktx
+
+    // room
+    implementation Room.runtime
+    kapt Room.compiler
+    implementation Room.rxjava2
+
+    // RxJava
+    implementation Rx.rx_android
+    implementation Rx.rxjava2
+
+    // Kotlin
+    implementation Kotlin.stdlib
+
+    // Koin
+    implementation Koin.core
+    implementation Koin.android
+    implementation Koin.architecture
+
+    //glide
+    implementation Glide.runtime
+    kapt Glide.compiler
+
+    // Retrofit
+    implementation Retrofit.runtime
+    implementation Retrofit.rx_adapter
+    implementation Retrofit.gson
+
+    // OkHttp
+    implementation Libraries.okhttp_logging_interceptor
+
+
+//    testImplementation Kotlin.stdlib
+//    testImplementation Kotlin.test
+//    testImplementation Koin.test, { exclude group: 'org.mockito' }
+
+
+    // testing
+    // Dependencies for local unit tests
+    testImplementation TestLibraries.junit
+    testImplementation Lifecycle.arch_core
+    testImplementation TestLibraries.mockk
+    // Core library
+    androidTestImplementation TestLibraries.test_core
+    // Assertions
+    androidTestImplementation TestLibraries.ext_junit
+    androidTestImplementation TestLibraries.ext_truth
+    androidTestImplementation TestLibraries.google_truth
+    // AndroidJUnitRunner and JUnit Rules
+    androidTestImplementation TestLibraries.axt_runner
+    androidTestImplementation TestLibraries.axt_rules
+    // Espresso dependencies
+    androidTestImplementation TestLibraries.espresso_core
+
+
+    // Resolve conflicts between main and test APK:
+//    androidTestImplementation Support.annotations
+//    androidTestImplementation Support.v4
+//    androidTestImplementation Support.app_compat
+//    androidTestImplementation Support.design
+}

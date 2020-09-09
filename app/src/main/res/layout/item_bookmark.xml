@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="userDocument"
+            type="com.smtm.mvvm.data.repository.user.model.UserDocument" />
+
+        <variable
+            name="vm"
+            type="com.smtm.mvvm.presentation.bookmark.BookmarkViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/bookmark_item_avatar_url"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:layout_marginStart="6dp"
+            app:loadImageWithCenterCrop="@{userDocument.avatar_url}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/bookmark_item_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="6dp"
+            android:text="@{userDocument.login}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintLeft_toRightOf="@+id/repository_item_avatar_url"/>
+
+        <ImageView
+            android:id="@+id/bookmark_item_del"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:onClick="@{() -> vm  != null ? vm.onClickDel(userDocument) : void}"
+            android:src="@drawable/ic_bookmark_remove"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

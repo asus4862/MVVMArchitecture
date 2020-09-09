@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="userDocument"
+            type="com.smtm.mvvm.data.repository.user.model.UserDocument" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:orientation="horizontal">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/repository_item_avatar_url"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:layout_marginStart="6dp"
+            app:loadImageWithCenterCrop="@{userDocument.avatar_url}" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/repository_item_login"
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:gravity="center_vertical"
+            android:layout_marginStart="6dp"
+            android:text="@{userDocument.login}" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/repository_item_remove"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            app:isSelected="@{userDocument.favorite}"
+            app:srcCompat="@drawable/ic_favorite_selector"/>
+
+    </LinearLayout>
+
+</layout>
+
+<!--    android:src="@{() -> vm  != null ? vm.selectBookId(item) : @drawable/ic_bookmark_plus}"-->
+
+<!--    android:onClick="@{() -> vm.onClickFavorite(userDocument)}"-->
